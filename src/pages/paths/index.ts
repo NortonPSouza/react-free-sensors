@@ -4,8 +4,6 @@ export const PRIVATE_ROUTES = [
     ...Dashboard
 ];
 
-console.log(PRIVATE_ROUTES)
-
 export const ROUTES = [
 
 ]

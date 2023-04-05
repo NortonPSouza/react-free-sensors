@@ -4,13 +4,13 @@ interface PropsCard {
     children: JSX.Element
 }
 
-interface PropsHeader{
-    title: string
+interface PropsHeader {
+    title?: string
 }
 
 export function Root(props: PropsCard): JSX.Element {
     return (
-        <Card w="md" h="md" bg="#4d4d4d" m={5}>
+        <Card bg="#4d4d4d" w="25%">
             {props.children}
         </Card>
     );
@@ -18,8 +18,8 @@ export function Root(props: PropsCard): JSX.Element {
 
 export function Header(props: PropsHeader): JSX.Element {
     return (
-        <CardHeader>
-            <Heading size="md" textAlign="center" textTransform='uppercase'>
+        <CardHeader w="25%">
+            <Heading textAlign="center">
                 {props.title}
             </Heading>
         </CardHeader>
@@ -28,7 +28,7 @@ export function Header(props: PropsHeader): JSX.Element {
 
 export function Body(props: PropsCard): JSX.Element {
     return (
-        <CardBody>
+        <CardBody w="100%">
             <Box>
                 {props.children}
             </Box>
