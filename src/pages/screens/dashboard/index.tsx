@@ -1,5 +1,12 @@
 import {useEffect, useState} from "react";
-import * as Card from "~@Components/card";
+
+import Humidity from "src/assets/humity.png";
+import Temperature from "src/assets/temperature.png";
+import Moon from "src/assets/moon.png";
+import Sun from "src/assets/sun.png";
+
+import {Sensors} from "./components/sensors";
+
 import {Mqtt} from "~@Factory/mqtt";
 import {Content} from "~@Components/content";
 
@@ -7,15 +14,42 @@ interface MessageMqtt {
     humidity: number;
     temperature: number;
     lightness: number;
+}
 
+interface LightValue {
+    titleLight: string;
+    imageLight: string;
 }
 
 const mqtt = new Mqtt();
+
+function lightValue(light: number): LightValue {
+    if (light <= 250) {
+        return {
+            titleLight: "Muito Claro", imageLight: Sun
+        };
+    }
+    if (light <= 500) {
+        return {
+            titleLight: "Claro", imageLight: Sun
+        };
+    }
+    if (light <= 750) {
+        return {
+            titleLight: "Escuro", imageLight: Moon
+        };
+    }
+    return {
+        titleLight: "Muito Escuro", imageLight: Moon
+    };
+}
 
 export function Dashboard(): JSX.Element {
     const [humidity, setHumidity] = useState<number>(0);
     const [temperature, setTemperature] = useState<number>(0);
     const [light, setLight] = useState<number>(0);
+
+    const {titleLight, imageLight} = lightValue(light);
 
     function createButton(device: string, name: string): void {
         if (device.length && name.length) {
@@ -41,23 +75,14 @@ export function Dashboard(): JSX.Element {
 
     return (
         <Content path="Dashboard">
-            <>
-                <Card.Root>
-                    <Card.Body>
-                        <h6 style={{color: "red"}}>{humidity}</h6>
-                    </Card.Body>
-                </Card.Root>
-                <Card.Root>
-                    <Card.Body>
-                        <h6 style={{color: "red"}}>{temperature}</h6>
-                    </Card.Body>
-                </Card.Root>
-                <Card.Root>
-                    <Card.Body>
-                        <h6 style={{color: "red"}}>{light}</h6>
-                    </Card.Body>
-                </Card.Root>
-            </>
+            <Sensors value={humidity} prefix="%" title="Umidade" image={Humidity}/>
+            <Sensors value={Number(temperature.toFixed(1))} prefix="ºC" title="Temperatura" image={Temperature}/>
+            <Sensors
+                value={light}
+                title={titleLight}
+                image={imageLight}
+                colorText={light > 500 ? "#fafafa" : "#1E1E1E"}
+                colorBackground={light > 500 ? "#1E1E1E" : "#fafafa"}/>
         </Content>
     );
 }
