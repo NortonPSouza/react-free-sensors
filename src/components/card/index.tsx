@@ -19,7 +19,7 @@ interface PropsBody{
 export function Root(props: PropsCard): JSX.Element {
     return (
         <Card
-            w="25%"
+            w="30%"
             mt="30px"
             h="200px"
             mr="40px"

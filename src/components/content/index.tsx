@@ -7,7 +7,7 @@ interface ContentProps {
 }
 export function Content(props: ContentProps): JSX.Element {
     return (
-        <Grid templateRows="repeat(3, 1fr)" templateColumns="repeat(12, 1fr)" gap={4} p={3}>
+        <Grid templateRows="repeat(3, 1fr)" templateColumns="repeat(12, 1fr)" p={2} w="100vw">
             <GridItem rowSpan={1} colStart={2} colEnd={12}>
                 <Text fontSize="24px">
                     FreeSensors / {props.path}
