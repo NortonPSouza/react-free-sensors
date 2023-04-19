@@ -1,12 +1,11 @@
 import "../styles/index.css";
-import {memo, ReactNode} from 'react';
+
+import {Outlet} from "react-router-dom";
+import {memo} from 'react';
 
 import {SideMenu} from "~@Components/template/sideMenu";
 
-type AppProps = {
-    children: ReactNode | JSX.Element
-}
-export const App = memo(({children}: AppProps) =>
+export const App = memo(() =>
     <div id="app"
          style={{
              display: "flex",
@@ -15,6 +14,6 @@ export const App = memo(({children}: AppProps) =>
          }}
     >
         <SideMenu/>
-        {children}
+        <Outlet/>
     </div>
 );
