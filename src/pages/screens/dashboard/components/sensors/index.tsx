@@ -14,7 +14,7 @@ interface PropsLight {
 export function Sensors(props: PropsLight): JSX.Element {
 
     return (
-        <Card.Root colorBorder="#0082FF" colorBackground={props.colorBackground || "#4d4d4d"} colorText={props.colorText || "#fafafa"}>
+        <Card.Root colorBorder="#0082FF" colorBackground={props.colorBackground} colorText={props.colorText || "#fafafa"}>
             <Card.Body fontSize="20px">
                 <Flex justifyContent="flex-start"  alignItems="center">
                     <Image src={props.image} boxSize='130px' mr="60px" />

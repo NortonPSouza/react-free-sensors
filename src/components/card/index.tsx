@@ -1,19 +1,19 @@
+import React from "react";
 import {Card, CardHeader, CardBody, Heading, Box} from "@chakra-ui/react";
-
 interface PropsCard {
-    children: JSX.Element;
+    children: React.ReactNode;
     colorBackground?: string;
     colorBorder?: string;
     colorText?: string;
 }
 
 interface PropsHeader {
-    title?: string
+    children?: React.ReactNode;
 }
 
-interface PropsBody{
-    children: JSX.Element
-    fontSize: string
+interface PropsBody {
+    children: React.ReactNode;
+    fontSize?: string
 }
 
 export function Root(props: PropsCard): JSX.Element {
@@ -25,7 +25,7 @@ export function Root(props: PropsCard): JSX.Element {
             mr="40px"
             display="inline-block"
             color={props.colorText}
-            bg={props.colorBackground}
+            bg={props.colorBackground || "#4d4d4d"}
             borderTop={`5px solid ${props.colorBorder}`}
         >
             {props.children}
@@ -37,7 +37,7 @@ export function Header(props: PropsHeader): JSX.Element {
     return (
         <CardHeader w="25%">
             <Heading textAlign="center">
-                {props.title}
+                {props.children}
             </Heading>
         </CardHeader>
     );
@@ -45,7 +45,7 @@ export function Header(props: PropsHeader): JSX.Element {
 
 export function Body(props: PropsBody): JSX.Element {
     return (
-        <CardBody w="100%">
+        <CardBody w="100%" p={3}>
             <Box fontSize={props.fontSize}>
                 {props.children}
             </Box>
