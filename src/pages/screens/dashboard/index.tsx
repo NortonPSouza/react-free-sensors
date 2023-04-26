@@ -51,16 +51,6 @@ export function Dashboard(): JSX.Element {
 
     const {titleLight, imageLight} = lightValue(light);
 
-    function createButton(device: string, name: string): void {
-        if (device.length && name.length) {
-            mqtt.publish(
-                `north/command/${device.toLowerCase()}`,
-                JSON.stringify({type: "create", button: name.toLowerCase()})
-            );
-        }
-        //TODO - add alert lib
-    }
-
     useEffect(() => {
         mqtt.connect();
         mqtt.subscribe("north/sensors/status");

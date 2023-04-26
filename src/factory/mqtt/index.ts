@@ -7,12 +7,19 @@ export class Mqtt implements IMqtt{
         this.client = null;
     }
 
-    public connect(): void {
+    public connect(callback?: Function): void {
         this.client = mqtt.connect(import.meta.env.VITE_MQTT_HOST_URL,{
             username: import.meta.env.VITE_MQTT_USERNAME,
             password: import.meta.env.VITE_MQTT_PASSWORD,
         }).on('connect', () => {
-            console.log('[~MQTT] = Connected')
+            console.log('[~MQTT] = Connected');
+            callback && callback();
+        });
+    }
+
+    public disconnect(): void {
+        this.client?.end(false,{},()=>{
+            console.log('[~MQTT] = disconnected')
         });
     }
 
@@ -32,9 +39,9 @@ export class Mqtt implements IMqtt{
      * @param message
      */
     public publish(topic: string, message: string): void {
-        this.client?.publish(topic, message, () =>
+        this.client?.publish(topic, message, () => {
             console.log('[~MQTT] = publish = ' + JSON.parse(message))
-        )
+        })
     }
 
     /**

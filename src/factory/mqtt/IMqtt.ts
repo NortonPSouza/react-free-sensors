@@ -1,5 +1,5 @@
 export  interface IMqtt {
-    connect(): void;
+    connect(callback?: Function): void;
     subscribe(topic: string): void;
     publish(topic: string, message: string): void;
     onMessage(callback: Function): void;

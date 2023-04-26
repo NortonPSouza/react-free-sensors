@@ -15,7 +15,7 @@ import React from "react";
 interface PropsAddButton {
     onSend(device: string, name: string): void
 }
-export function AddButton(props: PropsAddButton): JSX.Element {
+export function AddNewButtonAction(props: PropsAddButton): JSX.Element {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const initialRef = React.useRef(null);
