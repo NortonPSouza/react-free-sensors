@@ -2,7 +2,7 @@ import {NavLink} from "react-router-dom";
 import {IconType} from "react-icons";
 import {Icon} from "@chakra-ui/react";
 
-interface MenuItemProps {
+type MenuItemProps = {
     icon: IconType;
     top: string;
     path: string;

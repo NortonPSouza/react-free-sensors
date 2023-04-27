@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react"
 import React from "react";
 
-interface PropsAddButton {
+type PropsAddButton = {
     onSend(device: string, name: string): void
 }
 export function AddNewButtonAction(props: PropsAddButton): JSX.Element {

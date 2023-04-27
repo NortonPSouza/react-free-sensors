@@ -1,17 +1,18 @@
 import React from "react";
 import {Card, CardHeader, CardBody, Heading, Box} from "@chakra-ui/react";
-interface PropsCard {
+
+type PropsCard = {
     children: React.ReactNode;
     colorBackground?: string;
     colorBorder?: string;
     colorText?: string;
 }
 
-interface PropsHeader {
+type PropsHeader = {
     children?: React.ReactNode;
 }
 
-interface PropsBody {
+type PropsBody = {
     children: React.ReactNode;
     fontSize?: string
 }

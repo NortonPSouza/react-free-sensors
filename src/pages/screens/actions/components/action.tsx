@@ -5,7 +5,7 @@ import * as Card from "~@Components/card";
 import {Mqtt} from "~@Factory/mqtt";
 
 
-interface ActionsProps {
+type ActionsProps = {
     name: string;
     title: string;
     backgroundColor: string

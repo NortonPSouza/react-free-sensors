@@ -1,7 +1,7 @@
 import Chart from "react-apexcharts";
 
 
-interface GraphProps {
+type GraphProps = {
     id: string
     type: any
     data: number

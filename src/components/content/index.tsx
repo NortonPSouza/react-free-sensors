@@ -1,7 +1,7 @@
 import React from "react";
 import {Grid, GridItem, Text} from "@chakra-ui/react";
 
-interface ContentProps {
+type ContentProps = {
     path: string
     children: JSX.Element | React.ReactNode
 }

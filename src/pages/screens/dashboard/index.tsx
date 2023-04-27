@@ -10,13 +10,13 @@ import {Sensors} from "./components/sensors";
 import {Mqtt} from "~@Factory/mqtt";
 import {Content} from "~@Components/content";
 
-interface MessageMqtt {
+type MessageMqtt = {
     humidity: number;
     temperature: number;
     lightness: number;
 }
 
-interface LightValue {
+type LightValue = {
     titleLight: string;
     imageLight: string;
 }

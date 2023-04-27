@@ -2,7 +2,7 @@ import {Text, Flex, Image} from '@chakra-ui/react';
 
 import * as Card from "~@Components/card";
 
-interface PropsLight {
+type PropsLight = {
     value: number;
     title: string;
     image: string;

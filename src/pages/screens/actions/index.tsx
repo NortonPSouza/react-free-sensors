@@ -6,7 +6,7 @@ import {Mqtt} from "~@Factory/mqtt";
 import {ActionsButtons} from "./components/action";
 import {AddNewButtonAction} from "./components/modals/addButton";
 
-interface ButtonsState {
+type ButtonsState =  {
     device: string;
     name: string;
 }
