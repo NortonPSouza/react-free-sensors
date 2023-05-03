@@ -20,7 +20,7 @@ type PropsBody = {
 export function Root(props: PropsCard): JSX.Element {
     return (
         <Card
-            w="30%"
+            w="25%"
             mt="30px"
             h="200px"
             mr="40px"
@@ -36,7 +36,7 @@ export function Root(props: PropsCard): JSX.Element {
 
 export function Header(props: PropsHeader): JSX.Element {
     return (
-        <CardHeader w="25%">
+        <CardHeader w="100%">
             <Heading textAlign="center">
                 {props.children}
             </Heading>

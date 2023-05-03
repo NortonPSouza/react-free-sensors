@@ -1,5 +1,5 @@
 import React from "react";
-import {Grid, GridItem, Text} from "@chakra-ui/react";
+import {Flex, Text} from "@chakra-ui/react";
 
 type ContentProps = {
     path: string
@@ -7,15 +7,15 @@ type ContentProps = {
 }
 export function Content(props: ContentProps): JSX.Element {
     return (
-        <Grid templateRows="repeat(3, 1fr)" templateColumns="repeat(12, 1fr)" p={2} w="100vw">
-            <GridItem rowSpan={1} colStart={2} colEnd={12}>
+        <Flex px="40px" py="20px" w="100%" flexDirection="column">
+            <div>
                 <Text fontSize="24px">
                     FreeSensors / {props.path}
                 </Text>
-            </GridItem>
-            <GridItem rowSpan={2} mt={3} colStart={2} colEnd={12}>
+            </div>
+            <div>
                 {props.children}
-            </GridItem>
-        </Grid>
+            </div>
+        </Flex>
     );
 }

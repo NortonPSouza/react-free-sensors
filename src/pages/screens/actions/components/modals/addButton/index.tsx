@@ -26,7 +26,7 @@ export function AddNewButtonAction(props: PropsAddButton): JSX.Element {
 
     return (
         <Box mt={4} p={2}>
-            <Button colorScheme="blue" onClick={onOpen}>Adicionar botão</Button>
+            <Button colorScheme="whatsapp" onClick={onOpen}>Adicionar botão</Button>
 
             <Modal
                 isCentered

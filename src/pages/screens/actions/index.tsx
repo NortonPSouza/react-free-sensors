@@ -52,8 +52,8 @@ export function Actions(): JSX.Element {
                 buttons.map((item, index) =>
                     <ActionsButtons
                         key={index}
-                        title={item.device}
-                        name={item.name}
+                        title={item.name}
+                        description={item.device}
                         backgroundColor="#0080FB"
                     />
                 )
