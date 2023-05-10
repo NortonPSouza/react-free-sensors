@@ -53,6 +53,7 @@ export function Actions(): JSX.Element {
                     <ActionsButtons
                         key={index}
                         title={item.name}
+                        getButtons={getButtons}
                         description={item.device}
                         backgroundColor="#0080FB"
                     />
